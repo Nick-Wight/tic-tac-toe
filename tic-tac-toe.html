@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tic-Tac-Toe</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <script>
+
+    // define variables
+    let userSelect;
+    let compSelect;
+    let userWins = 0;
+    let compWins = 0;
+    
+    
+    // Computer input - random choice from array of Rock, Paper, Scissors
+    function computerPlay() {
+        let choices = ["Rock", "Paper", "Scissors"];
+        let random = Math.floor(Math.random() * choices.length);
+        compSelect = (choices[random]);
+        return compSelect = compSelect.toLowerCase();
+      }
+    
+      // Player input
+    function playerPlay() {
+      let userInput = prompt("Rock, Paper, or Scissors?");
+      return userSelect = userInput.toLowerCase();
+    }
+    
+    function playRound() {
+      computerPlay();
+      playerPlay();
+      
+      if (userSelect === compSelect) {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Tie");
+      }
+      else if (userSelect === "rock" && compSelect === "paper") {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Paper Beats Rock.  Comp Wins!");
+        compWins ++;
+      }
+      else if (userSelect === "rock" && compSelect === "scissors") {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Rock beats Scissors.  User Wins!");
+        userWins ++;
+      }
+      else if (userSelect === "paper" && compSelect === "rock") {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Paper Beats Rock.  User Wins!");
+        userWins ++;
+      }
+      else if (userSelect === "paper" && compSelect === "scissors") {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Scissors beats Paper.  Comp Wins!");
+        compWins ++;
+      }
+      else if (userSelect === "scissors" && compSelect === "rock") {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Rock beats Scissors.  Comp Wins!");
+        compWins ++;
+      }
+      else if (userSelect === "scissors" && compSelect === "paper") {
+        console.log(userSelect);
+        console.log(compSelect);
+        console.log("Scissors beats Paper.  User Wins!");
+        userWins ++;
+      }
+      else {
+        console.log("Error");
+      }
+    }
+
+    function game() {
+      for (let i = 0; i <= 5; i++) {
+        playRound();
+        console.log("User Wins:" + userWins);
+        console.log("Comp Wins:" + compWins);
+      }
+    }
+
+    game();
+
+    if (userWins > compWins) {
+      console.log ("User Wins!")
+    }
+    else if (compyWins > userWins) {
+      console.log ("Comp Wins!")
+    }
+    else {
+      console.log ("Draw");
+    }
+    
+    </script>
+
+
+
+</body>
+</html>
